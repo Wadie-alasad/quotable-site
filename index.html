@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quotable Studio · Short clips from your business podcast</title>
+<meta name="description" content="Quotable Studio turns your weekly podcast episode into 20 short clips a month for TikTok, Reels and Shorts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#EEF1F5;
+    --paper:#FFFFFF;
+    --ink:#141A26;
+    --ink-soft:#4A5366;
+    --rule:#D5DAE3;
+    --mark:#FFD84D;
+    --mark-deep:#E8B800;
+    --head:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono:"IBM Plex Mono", Consolas, monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  header.top{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
+  .logo{font-family:var(--head);font-weight:800;font-size:22px;letter-spacing:-0.02em;text-decoration:none}
+  .logo span{background:var(--mark);padding:0 6px;border-radius:4px}
+  .top a.small{font-size:16px;font-weight:500;text-decoration:none;border-bottom:2px solid var(--ink)}
+
+  .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:40px 0 96px}
+  h1{font-family:var(--head);font-weight:800;font-size:clamp(40px,5.6vw,68px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 24px}
+  .lede{font-size:20px;color:var(--ink-soft);max-width:34em;margin:0 0 36px}
+  .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:16px 26px;border-radius:999px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-note{display:block;margin-top:14px;font-size:15px;color:var(--ink-soft)}
+
+  /* The transcript: the page's one memorable element */
+  .transcript{background:var(--paper);border-radius:18px;padding:28px 28px 22px;box-shadow:0 24px 60px -30px rgba(20,26,38,.35);font-size:16px}
+  .transcript .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;color:var(--ink-soft);padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:12px}
+  .line{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:7px 0;color:#8A92A3}
+  .line time{font-family:var(--mono);font-size:13px;padding-top:3px}
+  .line.clip{color:var(--ink);position:relative}
+  .line.clip p{margin:0;background:linear-gradient(transparent 8%, var(--mark) 8%, var(--mark) 92%, transparent 92%);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 4px;font-weight:500}
+  .line p{margin:0}
+  .clip-tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:13px;background:var(--ink);color:#fff;padding:6px 10px;border-radius:6px}
+
+  section{padding:88px 0;border-top:1px solid var(--rule)}
+  h2{font-family:var(--head);font-weight:700;font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:-0.025em;margin:0 0 28px;max-width:20em}
+  .for p{font-size:24px;line-height:1.45;max-width:30em;margin:0}
+
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+  .steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:18px}
+  .steps li::before{content:counter(s);font-family:var(--head);font-weight:800;font-size:40px;line-height:1;display:block;margin-bottom:14px}
+  .steps h3{font-family:var(--head);font-size:22px;margin:0 0 8px}
+  .steps p{margin:0;color:var(--ink-soft);font-size:17px}
+
+  .get{display:grid;grid-template-columns:1fr 1fr;gap:12px 48px;list-style:none;padding:0;margin:0}
+  .get li{padding:14px 0 14px 34px;border-bottom:1px solid var(--rule);position:relative}
+  .get li::before{content:"";position:absolute;left:0;top:22px;width:18px;height:10px;background:var(--mark);border-radius:2px}
+
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .plan{background:var(--paper);border-radius:18px;padding:32px}
+  .plan.feature{background:var(--ink);color:#fff}
+  .plan .name{font-family:var(--head);font-size:22px;font-weight:700;margin:0 0 6px}
+  .plan .price{font-family:var(--head);font-size:48px;font-weight:800;letter-spacing:-0.03em;margin:0}
+  .plan .price small{font-size:18px;font-weight:500}
+  .plan p.desc{margin:14px 0 0;color:var(--ink-soft)}
+  .plan.feature p.desc{color:#C9CFDA}
+  .spots{display:inline-block;margin-top:18px;background:var(--mark);color:var(--ink);font-size:14px;font-weight:600;padding:5px 12px;border-radius:999px}
+
+  .guarantee p{font-size:24px;line-height:1.45;max-width:30em;margin:0}
+
+  details{border-bottom:1px solid var(--rule);padding:20px 0}
+  summary{font-family:var(--head);font-weight:700;font-size:21px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:500}
+  details[open] summary::after{content:"\2212"}
+  details p{margin:12px 0 0;color:var(--ink-soft);max-width:40em}
+
+  .final{background:var(--ink);color:#fff;border-radius:24px;padding:64px 48px;margin:88px 0 32px}
+  .final h2{color:#fff;margin-bottom:16px}
+  .final p{color:#C9CFDA;margin:0 0 32px;max-width:32em}
+  .final .btn{background:var(--mark);color:var(--ink)}
+  footer{padding:24px 0 56px;color:var(--ink-soft);font-size:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:40px;padding-bottom:64px}
+    .steps{grid-template-columns:1fr 1fr}
+    .get,.plans{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .final{padding:44px 28px}
+  }
+  @media (max-width:520px){
+    body{font-size:17px}
+    .steps{grid-template-columns:1fr}
+    .for p,.guarantee p{font-size:21px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="logo" href="#"><span>Quotable</span> Studio</a>
+    <a class="small book-link" href="#">Book a call</a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Your podcast already has 20 great clips in it. We find them.</h1>
+      <p class="lede">Quotable Studio turns your weekly episode into 20 short clips a month for TikTok, Reels and Shorts, written and edited to bring you buyers, not just views.</p>
+      <a class="btn book-link" href="#">Book a 20-minute clip strategy call</a>
+      <span class="btn-note">You'll see clips cut from your own latest episode on the call.</span>
+    </div>
+
+    <figure class="transcript" aria-label="Example transcript with the clip moment highlighted">
+      <div class="meta"><span>Episode 112 · transcript</span><span>1:04:37</span></div>
+      <div class="line"><time>36:48</time><p>…and that's when we moved the whole team over.</p></div>
+      <div class="line"><time>36:59</time><p>Anyway, the pricing question comes up a lot.</p></div>
+      <div class="line clip"><time>37:12</time><p>Everyone thinks they lost the deal on price. They lost it in the first ten minutes, when they never asked what the problem was costing.</p></div>
+      <div class="line"><time>37:41</time><p>Yeah. Yeah, totally. So what about hiring?</p></div>
+      <span class="clip-tag">Clip found · 37:12 → 37:55</span>
+    </figure>
+  </div>
+
+  <section class="for">
+    <h2>Who it's for</h2>
+    <p>Business and money podcasters who publish a full episode every week and know their best moments are buried at minute 37.</p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>Upload</h3><p>Drop your raw episode in a shared folder every Monday.</p></li>
+      <li><h3>We pick</h3><p>We find moments that stand on their own and score them for hook, contrast and fit with what you sell.</p></li>
+      <li><h3>We edit</h3><p>Captions, on-screen hooks, punch-ins and pacing built for the first 2 seconds.</p></li>
+      <li><h3>We post</h3><p>5 clips a week go out on TikTok, Reels and Shorts, with a report every 30 days.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What you get every month</h2>
+    <ul class="get">
+      <li>20 finished clips, 30–59 seconds, vertical</li>
+      <li>On-screen hook and captions in your brand colors</li>
+      <li>Titles, captions and hashtags for each platform</li>
+      <li>Scheduled and posted on 3 platforms</li>
+      <li>48-hour turnaround on every episode</li>
+      <li>A one-page report: what worked, what didn't, what changes next</li>
+    </ul>
+  </section>
+
+  <!-- SAMPLES (add on Day 5): remove the "hidden" attribute and replace the src values with your clip files -->
+  <section id="samples" hidden>
+    <h2>Recent clips</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+      <video src="clip1.mp4" controls playsinline style="width:100%;border-radius:14px;background:#000"></video>
+      <video src="clip2.mp4" controls playsinline style="width:100%;border-radius:14px;background:#000"></video>
+      <video src="clip3.mp4" controls playsinline style="width:100%;border-radius:14px;background:#000"></video>
+    </div>
+    <p style="color:var(--ink-soft);font-size:15px;margin-top:14px">Concept edits from business podcasts.</p>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <div class="plans">
+      <div class="plan">
+        <p class="name">Core</p>
+        <p class="price">$1,000<small>/month</small></p>
+        <p class="desc">20 clips, posted on 3 platforms, monthly report. 2-month minimum, then month to month.</p>
+      </div>
+      <div class="plan feature">
+        <p class="name">Founding clients</p>
+        <p class="price">$750<small>/month</small></p>
+        <p class="desc">Everything in Core, locked for 3 months, in exchange for a case study.</p>
+        <span class="spots">3 spots</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="guarantee">
+    <h2>The guarantee</h2>
+    <p>Your first 5 clips land within 5 business days. If you don't approve them, you get month 1 back in full.</p>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Do I need to film anything new?</summary><p>No. We work only from the episodes you already record.</p></details>
+    <details><summary>Who owns the clips?</summary><p>You do, fully.</p></details>
+    <details><summary>Can I approve clips before they go out?</summary><p>Yes. You get each week's clips on Thursday with 24 hours to request changes.</p></details>
+    <details><summary>How is this different from AI clipping tools?</summary><p>Tools find timestamps. We choose the moments, rebuild the opening so it hooks in 2 seconds, and write the packaging for each platform.</p></details>
+    <details><summary>What if my episodes are long and rambling?</summary><p>Better. Long conversations hold the best unscripted moments.</p></details>
+  </section>
+
+  <div class="final">
+    <h2>See your own episode as clips.</h2>
+    <p>Book 20 minutes. I'll show you the clips I'd cut from your latest episode and how I'd run your next 30 days.</p>
+    <a class="btn book-link" href="#">Book a 20-minute clip strategy call</a>
+  </div>
+
+  <footer>
+    <span>Quotable Studio</span>
+    <a href="mailto:wadie@quotablestudio.com">wadie@quotablestudio.com</a>
+  </footer>
+</div>
+
+<script>
+  // ONE place to change your booking link. Paste your Calendly link between the quotes on Day 2.
+  const BOOKING_URL = "";
+  const fallback = "mailto:wadie@quotablestudio.com?subject=Clip%20strategy%20call";
+  document.querySelectorAll(".book-link").forEach(a => {
+    a.href = BOOKING_URL || fallback;
+    if (BOOKING_URL) { a.target = "_blank"; a.rel = "noopener"; }
+  });
+</script>
+</body>
+</html>
